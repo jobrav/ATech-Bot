@@ -1,4 +1,5 @@
 const { Client, Intents } = require('discord.js');
+require('dotenv').config()
 
 const client = new Client({ intents: [
     Intents.FLAGS.GUILDS,
@@ -10,7 +11,6 @@ const client = new Client({ intents: [
 client.on('ready', async () => {
     console.log("Ik ben gestart")
 });
-
 
 const studies = [
     {
@@ -90,5 +90,4 @@ client.on('guildMemberAdd', async (user) => {
     await sendStudyMessage(channel)
 });
 
-//process.env.BOT_TOKEN
-client.login("OTEzNzQ5NjkyNDEwNjQyNDMy.YaDBtw.g0gO1h33AJaXOVO-lIipC865B1w")
+client.login(process.env.BOT_TOKEN)
